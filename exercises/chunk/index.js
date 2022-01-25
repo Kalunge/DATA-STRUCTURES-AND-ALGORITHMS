@@ -21,7 +21,18 @@ function chunk(array, size) {
       result[result.length - 1].push(item);
     }
   }
-  return result
+
+  return result;
+
+  // Alternate Solution
+  let result = [];
+  let index = 0;
+
+  while (index < array.length) {
+    result.push(array.slice(index, index + size));
+    index += size;
+  }
+  return result;
 }
 
 console.log(chunk([1, 2, 3, 4, 5], 2));
