@@ -2,8 +2,27 @@
 // Implement classes Node and Linked Lists
 // See 'directions' document
 
-class Node {}
+// A Node
+// Insert First
+// size
+// GetFirst
+// GetLast
+// Clear
+// RemoveFirst
 
-class LinkedList {}
+class Node {
+  constructor(data, next = null) {
+    this.data = data;
+    this.next = next;
+  }
+}
+
+class LinkedList {
+  constructor(head = null) {
+    this.head = head;
+  }
+
+  
+}
 
 module.exports = { Node, LinkedList };
