@@ -12,6 +12,7 @@
 // RemoveLast
 // InsertLast
 // GetAt
+// Remove At
 
 class Node {
   constructor(data, next = null) {
@@ -90,8 +91,31 @@ class LinkedList {
   }
 
   insertLast(data) {
-    let node = new Node(data);
-    this.getLast().next = node;
+    let last = this.getLast();
+
+    if (last) {
+      last.next = new Node(data);
+    } else {
+      this.head = new Node(data);
+    }
+  }
+
+  getAt(index) {
+    let count = 0;
+    let node = this.head;
+
+    while (node) {
+      if (count === index) {
+        return node;
+      }
+      count++;
+      node = node.next;
+    }
+    return null;
+  }
+
+  removeAt(index) {
+    
   }
 }
 
