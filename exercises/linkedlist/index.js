@@ -9,6 +9,7 @@
 // GetLast
 // Clear
 // RemoveFirst
+// RemoveLast
 
 class Node {
   constructor(data, next = null) {
@@ -58,6 +59,32 @@ class LinkedList {
 
   clear() {
     this.head = null;
+  }
+
+  removeFirst() {
+    this.head = this.head.next;
+  }
+
+  removeLast() {
+    if (!this.head) {
+      return null;
+    }
+
+    if (!this.head.next) {
+      this.head = null;
+      return;
+    }
+
+    let node = this.head;
+
+    while (node) {
+      if (!node.next.next) {
+        node.next = null;
+        return;
+      }
+
+      node = node.next;
+    }
   }
 }
 
