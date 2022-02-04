@@ -22,7 +22,11 @@ class LinkedList {
     this.head = head;
   }
 
-  
+  insertFirst(data) {
+    this.head = new Node(data, this.head);
+  }
+
+ 
 }
 
 module.exports = { Node, LinkedList };
