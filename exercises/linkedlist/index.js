@@ -10,6 +10,8 @@
 // Clear
 // RemoveFirst
 // RemoveLast
+// InsertLast
+// GetAt
 
 class Node {
   constructor(data, next = null) {
@@ -85,6 +87,11 @@ class LinkedList {
 
       node = node.next;
     }
+  }
+
+  insertLast(data) {
+    let node = new Node(data);
+    this.getLast().next = node;
   }
 }
 
