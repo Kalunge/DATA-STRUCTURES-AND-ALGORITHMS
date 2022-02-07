@@ -13,6 +13,8 @@
 // InsertLast
 // GetAt
 // Remove At
+// InsertAt
+// forEach
 
 class Node {
   constructor(data, next = null) {
@@ -115,7 +117,60 @@ class LinkedList {
   }
 
   removeAt(index) {
-    
+    if (!this.head) {
+      return;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let node = this.head;
+    let count = 0;
+
+    while (node) {
+      if (count === index - 1) {
+        if (!node || !node.next) {
+          return;
+        }
+        node.next = node.next.next;
+      }
+      count++;
+      node = node.next;
+    }
+
+    return null;
+  }
+
+  insertAt(data, index) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+
+    let previous = this.getAt(index - 1) || this.getLast();
+
+    // if (!previous) {
+    //   this.getLast().next = new Node(data);
+    //   return
+    // }
+
+    previous.next = new Node(data, previous.next);
+  }
+
+  forEach(fn) {
+    let node = this.head;
+
+    while (node) {
+      fn(node);
+      node = node.next;
+    }
   }
 }
 
